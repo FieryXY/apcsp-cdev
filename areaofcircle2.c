@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 	  }
 	  else {
 		  printf("Invalid Input");
-		  return;
+		  return 0;
 	  }
 	  printf("Enter reps:\n");
 	  if(fgets(buffer, sizeof(int), stdin) && sscanf(buffer, "%d", &reps)) {
@@ -46,12 +46,12 @@ int main(int argc, char* argv[])
 	  }
 	  else {
 		  printf("Invalid Input");
-		  return;
+		  return 0;
 	  }
   }
   else if (!(sscanf(argv[1], "%f", &start) && sscanf(argv[2], "%d", &reps))) {
 	  printf("Invalid Input");
-	  return;
+	  return 0;
   }
 
   printf("calculating area of circle starting at %f, and ending at %f\n", start, start+reps-1);
