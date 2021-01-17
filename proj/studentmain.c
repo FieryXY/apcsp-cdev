@@ -82,7 +82,9 @@ int main()
       printf(" Enter id: ");
       int id = getInputNumber();
 
-      createStudent(fname, lname, age, id);
+      if(!createStudent(fname, lname, age, id)) {
+	printf("Something went wrong or student storage is full\n");
+      }
     }
   }
   

@@ -14,7 +14,7 @@ typedef struct
 //
 // create a student and add the student to the list of students
 //
-void createStudent(char* fn, char* ln, int age, int id);
+int createStudent(char* fn, char* ln, int age, int id);
 
 //
 // delete all students and free the memory

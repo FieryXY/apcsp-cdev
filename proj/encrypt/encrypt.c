@@ -3,6 +3,7 @@
 //
 
 #include <string.h>
+#include <math.h>
 
 #include "encrypt.h"
 
@@ -10,6 +11,12 @@
 char CHARS[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 int CHARS_LEN = 62;
 
+int mathMod(int a, int n) {
+	while(a%n < 0) {
+		a += n;
+	}
+	return a%n;
+}
 
 char shiftChar(char c, int shift, int direction)
 {
@@ -22,6 +29,20 @@ char shiftChar(char c, int shift, int direction)
   //   shiftChar('c', 3, 1) : 'f'
   //   shiftChar('S', 2, 0) : 'P'
   //   shiftChar('b', 3, 0) : '8'
+  int index = -1;
+  for(int i = 0; i < CHARS_LEN; ++i) {
+    if(CHARS[i] == c) {
+	index = i;
+	break;
+    }
+  }
+  if(index == -1) {
+	return c;
+  }
+  if(direction == 1) 
+	return CHARS[mathMod(index+shift, CHARS_LEN)];
+   else
+	return CHARS[mathMod(index-shift, CHARS_LEN)];
 }
 
 
