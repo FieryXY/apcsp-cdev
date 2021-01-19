@@ -90,6 +90,7 @@ void saveStudents(int key)
 void loadStudents(int key)
 {
   // load the students from the data file overwriting all exisiting students in memory
+ deleteStudents();
   FILE* data;
   data = fopen(STUFILE, "r");
   char fname[256];
